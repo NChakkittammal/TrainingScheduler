@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 //import { Router } from '@angular/router';
 //import { AuthService } from './auth.service';
 
@@ -18,16 +18,13 @@ export class SignUpComponent {
        // private authService: AuthService,
     ) { }
 
-    ngOnInit() {
-    }
-
-    signUp(): void {
+     signUp(): void {
         const newUser={
             firstName: this.firstName,
             lastName: this.lastName,
             phoneNumber: this.phoneNumber,
             email: this.email,
-            password: this.password
+            password: this.password,
         };
             if (newUser.firstName && newUser.lastName && newUser.email && newUser.password) 
             {
