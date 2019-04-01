@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class SignUpComponent {
     firstName = '';
     lastName = '';
+    phoneNumber='';
     email = '';
     password = '';
+
 
     constructor(
         //private router: Router,
@@ -23,6 +25,7 @@ export class SignUpComponent {
         const newUser={
             firstName: this.firstName,
             lastName: this.lastName,
+            phoneNumber: this.phoneNumber,
             email: this.email,
             password: this.password
         };

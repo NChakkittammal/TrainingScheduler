@@ -5,7 +5,9 @@
       <label>First Name</label>
       <input type="text" class="form-control" [(ngModel)]="firstName" name="firstName"/>
       <label>LastName</label>
-      <input type="text" class="form-control" [(ngModel)]="LastName" name="LastName" />  
+      <input type="text" class="form-control" [(ngModel)]="lastName" name="LastName" />  
+      <label>PhoneNumber</label>
+      <input type="text" class="form-control" [(ngModel)]="phoneNumber" name="phoneNumber" />  
       <label>Email</label>
       <input type="text" class="form-control" [(ngModel)]="email" name="email"/>
       <label>Password</label>
@@ -16,5 +18,5 @@
   </div>
   <br>
   <button type="submit" class="btn btn-primary" (click)="login()">Submit</button>
-  <button type="signup" class="btn btn-default" (click)="signUp()">SignUp</button>
+  <button type="signup" class="btn btn-default" routerLink="signUp()">SignUp</button>
 </form>
