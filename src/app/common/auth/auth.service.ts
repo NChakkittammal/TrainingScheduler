@@ -35,4 +35,8 @@ export class AuthService {
     logout(): void {
         this.token.next(null);
     }
+
+    signup(firstName:string, lastNmae:string, email:string, password:string) : void {
+
+    }
 }

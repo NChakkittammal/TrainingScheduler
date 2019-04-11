@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class SignUpComponent {
     firstName = '';
     lastName = '';
-    phoneNumber='';
+    phoneNumber ='';
     email = '';
     password = '';
 
