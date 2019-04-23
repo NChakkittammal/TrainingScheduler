@@ -1,0 +1,20 @@
+<h2>Info: </h2>
+
+<form [formGroup]="InfoForm">
+  <div class="row">
+    <div class="col-md-6">
+      <label>Info</label>
+      <input type="text" class="form-control" formControlName= "name" />
+    </div> 
+    <div class="col-md-6">
+      <label>Lastname</label>
+      <input type="text" class="form-control" formControlName= "Lastname" />
+    </div><br />
+    <div class="row">
+    <div class="col-md-6"><button class="btn btn-primary" [disabled]="!InfoForm.valid" (click)="save()">Submit</button>
+    </div>
+  </div>
+  <br>
+  
+  <button type="signup" class="btn btn-default" routerLink = "/sign-up">Sign Up</button>
+</form>

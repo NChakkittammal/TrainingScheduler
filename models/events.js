@@ -5,14 +5,11 @@ module.exports = (sequelize, DataTypes) => {
     eventDate: DataTypes.DATE,
     eventLocation: DataTypes.STRING,
     eventDescription: DataTypes.STRING
-  }, 
-  UserId: {
-    type:Datatypes.Integer,
-    allowNull:false,
-  },{});
+  },{}); 
+
   Events.associate = function(models) {
     // associations can be defined here
-    models.Events.belongsTo(models.Users
+    models.Events.belongsTo(models.Users,
       {
         foreignkey: 'userId',
         sourcekey: 'id',

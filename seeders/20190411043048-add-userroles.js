@@ -8,15 +8,11 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      role: 'Trainer',
+      role: 'User',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
-    {
-      role: 'Attendee',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }]);
+   ]);
 
   },
 

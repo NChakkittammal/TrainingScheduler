@@ -4,6 +4,7 @@ require('./config/sync_config/config');
 const models = require('./models');
 require('./global_functions');
 const userController = require('./controllers/UsersController');
+const eventsController = require('./controllers/EventsController');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const JwtStrategy = require('passport-jwt').Strategy;
@@ -76,4 +77,8 @@ app.put(
   userController.update,
 );
 app.post('/login', userController.login);
+app.post('/Events', passport.authenticate('jwt', { session: false }), eventsController.create);
+app.put('/Events', passport.authenticate('jwt', { session: false }), eventsController.update);
+app.get('/Events', passport.authenticate('jwt', { session: false }), eventsController.getAll);
+app.get('/Events/:Id', passport.authenticate('jwt', { session: false }), eventsController.get);
 module.exports = app;

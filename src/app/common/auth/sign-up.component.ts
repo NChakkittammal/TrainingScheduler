@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-//import { Router } from '@angular/router';
-//import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
     templateUrl: './sign-up.component.html',
@@ -14,9 +14,8 @@ export class SignUpComponent {
 
 
     constructor(
-        //private router: Router,
-       // private authService: AuthService,
-    ) { }
+       private router: Router,
+       private authService: AuthService) { }
 
      signUp(): void {
         const newUser={
@@ -28,12 +27,15 @@ export class SignUpComponent {
         };
             if (newUser.firstName && newUser.lastName && newUser.email && newUser.password) 
             {
-                        console.log(newUser);
-                }
+                        this.authService.signup(newUser.firstName,newUser.lastName,newUser.email,newUser.password).subscribe((Response)=>
+                        {
+                            this.router.navigateByUrl('/login');
+                        });
+            }
                 else
                      console.log('Broken Form. Please enter a value in all fields');
                 
             
-    }
+    };
 
-}
+};

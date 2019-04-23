@@ -21,9 +21,11 @@ const create = async function (req, res) {
 module.exports.create = create;
 
 const createUser = async function (userInfo) {
+  console.log("Adding " + userInfo.email)
   let err;
   if (validator.isEmail(userInfo.email)) {
     [err, user] = await to(Users.create(userInfo));
+    //console.log(err)
     if (err) TE('User already exists with that email');
     return user;
   } else {

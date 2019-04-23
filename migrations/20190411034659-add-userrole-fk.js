@@ -7,13 +7,11 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:*/
-      return queryInterface.addColumn('users', 'userRoleId', { type: Sequelize.INTEGER },
+      return queryInterface.addColumn('users', 'userRoleId', { type: Sequelize.INTEGER ,
       references:{ 
         model: 'UserRoles',
         key: 'id',
-      },
-      onUpdate: 'Cascade',
-      onDelete: 'SetNull',
+      }
       });
     
   },
