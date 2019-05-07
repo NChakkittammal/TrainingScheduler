@@ -1,0 +1,16 @@
+<h2>Events List</h2>
+<div class="row" [formGroup]="searchForm">
+    <div class="col-md-8">
+      <label>Search:</label>
+      <input class="form-control" formControlName = "query" placeholder= "Enter text to search..." />
+    </div>
+  </div>
+  <br />
+  <div class="list-group">
+    <a *ngFor=" let info of Events " class="list-group-item list-group-item-action"
+    routerLink="/eventList">
+     {{Events.name}}
+        <span *ngIf ="isAdmin" class="float-right" {{events.User.first + '' + events.User.last}} ></span>
+    </a>
+  </div> 
+

@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
         validate: {
           len: { args: [7, 20], msg: 'Phone number invalid.' },
+          is: /^[0-9]{1,10}$/,
           isNumeric: { msg: 'Not a valid phone number.' },
         },
       },

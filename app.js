@@ -11,7 +11,6 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const Users = require('./models').Users;
 const app = express();
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
@@ -80,5 +79,6 @@ app.post('/login', userController.login);
 app.post('/Events', passport.authenticate('jwt', { session: false }), eventsController.create);
 app.put('/Events', passport.authenticate('jwt', { session: false }), eventsController.update);
 app.get('/Events', passport.authenticate('jwt', { session: false }), eventsController.getAll);
+app.get('/Events/Admin', passport.authenticate('jwt', { session: false }), eventsController.getAllAdmin);
 app.get('/Events/:Id', passport.authenticate('jwt', { session: false }), eventsController.get);
 module.exports = app;

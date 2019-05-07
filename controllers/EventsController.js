@@ -23,6 +23,34 @@ const getAll = async function (req, res) {
 }
 module.exports.getAll = getAll;
 
+const getAllAdmin = async function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    let err, Events;
+    if(req.user.userRoleId !==1){
+        res.statusCode = 401;
+        return res.json({ success: false, error: 'Unauthorized'});
+    }
+    let whereStatement = {};
+    if (req.query.name) {
+        whereStatement.name = {
+            $like: '%' + req.query.name + '%'
+        };
+    }
+    if (req.query.isCompleted) {
+        whereStatement.isCompleted = {
+            $eq: (req.query.isCompleted === 'true')
+        };
+    }
+    
+    [err, Events] = await to(Events.findAll({ 
+        include: [{ model: Users}],
+        where: whereStatement,
+        order: [['orderId', 'ASC']] }));
+    if (err) console.log(err.message);
+    return res.json(Events);
+}
+module.exports.getAll = getAll;
+
 const get = async function (req, res) {
     let err, events;
     let Id = parseInt(req.params.Id);

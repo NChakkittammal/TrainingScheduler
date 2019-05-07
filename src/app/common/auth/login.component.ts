@@ -7,16 +7,15 @@ import { AuthService } from './auth.service';
 })
 export class LoginComponent implements OnInit {
 
-    email = '';
-    password = '';
+    email = 'nchakki@gmail.com';
+    password = '5107';
 
     constructor(
         private router: Router,
         private authService: AuthService,
     ) { }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
     login(): void {
         this.authService.login(this.email, this.password)

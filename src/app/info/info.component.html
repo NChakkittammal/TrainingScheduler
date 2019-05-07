@@ -1,9 +1,9 @@
-<h2>Info: </h2>
+<h2>Add/Update Events Info: </h2>
 
 <form [formGroup]="InfoForm">
   <div class="row">
     <div class="col-md-6">
-      <label>Info</label>
+      <label>"Add/Update EventsInfo"</label>
       <input type="text" class="form-control" formControlName= "name" />
     </div> 
     <div class="col-md-6">
@@ -13,6 +13,7 @@
     <div class="row">
     <div class="col-md-6"><button class="btn btn-primary" [disabled]="!InfoForm.valid" (click)="save()">Submit</button>
     </div>
+  </div>
   </div>
   <br>
   

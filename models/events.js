@@ -4,8 +4,18 @@ module.exports = (sequelize, DataTypes) => {
     eventName: DataTypes.STRING,
     eventDate: DataTypes.DATE,
     eventLocation: DataTypes.STRING,
-    eventDescription: DataTypes.STRING
-  },{}); 
+    eventDescription: DataTypes.STRING,
+    isCompleted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    dateCompleted: DataTypes.DATE,
+    orderId: { type: DataTypes.INTEGER, allowNull: false },
+    userId: { type: DataTypes.INTEGER, allowNull: false },
+
+  }, {});
+},{};
 
   Events.associate = function(models) {
     // associations can be defined here
@@ -16,4 +26,3 @@ module.exports = (sequelize, DataTypes) => {
       });
   };
   return Events;
-};

@@ -13,6 +13,7 @@ export class SignUpComponent {
     password = '';
 
 
+
     constructor(
        private router: Router,
        private authService: AuthService) { }
@@ -21,13 +22,13 @@ export class SignUpComponent {
         const newUser={
             firstName: this.firstName,
             lastName: this.lastName,
-            phoneNumber: this.phoneNumber,
+            //phoneNumber: this.phoneNumber,
             email: this.email,
             password: this.password,
         };
             if (newUser.firstName && newUser.lastName && newUser.email && newUser.password) 
-            {
-                        this.authService.signup(newUser.firstName,newUser.lastName,newUser.email,newUser.password).subscribe((Response)=>
+            {          console.log(newUser);
+                        this.authService.signup(newUser.firstName,newUser.lastName,newUser.email,newUser.password).subscribe((response)=>
                         {
                             this.router.navigateByUrl('/login');
                         });

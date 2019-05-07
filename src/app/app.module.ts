@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +13,8 @@ import { LoginComponent } from './common/auth/login.component';
 import { SignUpComponent } from './common/auth/sign-up.component';
 import { TokenInterceptor } from './common/auth/token.interceptor';
 import { InfoComponent } from './info/info.component';
+import { EventListComponent } from './list/eventlist.component';
+import { EventsService } from './events.service';
 
 
 @NgModule({
@@ -24,6 +24,7 @@ import { InfoComponent } from './info/info.component';
     LoginComponent,
     SignUpComponent,
     InfoComponent,
+    EventListComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +38,7 @@ import { InfoComponent } from './info/info.component';
   providers: [
     AuthService,
     AuthGuard,
+    EventsService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
